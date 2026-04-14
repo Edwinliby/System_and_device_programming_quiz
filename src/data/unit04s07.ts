@@ -6,6 +6,7 @@ export const unit04s07Questions: Question[] = [
     topic: "Static vs stack vs heap",
     text: "Static vs. stack vs. heap memory",
     code: null,
+    points: 1,
     opts: [
       { s: "Static memory stores objects defined outside any functions and static class data members; their lifetime depends on their scope and is managed automatically by the compiler.", c: true },
       { s: "Stack memory stores non-static local objects defined inside functions; they are automatically managed by the compiler.", c: true },
@@ -18,6 +19,7 @@ export const unit04s07Questions: Question[] = [
     topic: "malloc/free vs new/delete",
     text: "C-style dynamic memory (malloc/free) vs. C++ (new/delete)",
     code: null,
+    points: 1,
     opts: [
       { s: "malloc and free automatically call constructors and destructors for objects, just like new and delete.", c: false },
       { s: "malloc and free are library functions that return raw memory (void*), requiring explicit type casting and manual initialization.", c: true },
@@ -32,6 +34,7 @@ export const unit04s07Questions: Question[] = [
     code: `int *v1 = new int;
 int *v2 = new int();
 int *v3 = new int(12);`,
+    points: 1,
     opts: [
       { s: "v1 points to a single int with undefined value (similar to malloc).", c: true },
       { s: "v2 points to a single int initialized to 0 (similar to calloc).", c: true },
@@ -45,6 +48,7 @@ int *v3 = new int(12);`,
     text: "new with arrays and exceptions",
     code: `int *vect1 = new int[10];
 int *vect2 = new (nothrow) int[20];`,
+    points: 1,
     opts: [
       { s: "vect1 is an array of 10 integers; if allocation fails, new throws std::bad_alloc.", c: true },
       { s: "vect2 is an array of 20 integers; if allocation fails, new (nothrow) returns nullptr and does not throw an exception.", c: true },
@@ -58,6 +62,7 @@ int *vect2 = new (nothrow) int[20];`,
     text: "Allocating constant objects with new",
     code: `const int *p4 = new const int(100);
 const my_class *p5 = new const my_class;`,
+    points: 1,
     opts: [
       { s: "p4 points to a dynamically allocated constant integer initialized to 100.", c: true },
       { s: "p5 points to a dynamically allocated constant my_class object initialized via the default constructor.", c: true },
@@ -79,6 +84,7 @@ double *p2 = new double[10];
 p2[0] = 8.2;
 p2[7] = 9.4;
 p2[-4] = 2.4; // Error`,
+    points: 1,
     opts: [
       { s: "A pointer does not know the number of elements it points to; it only knows the address of the first element.", c: true },
       { s: "For p1 (single double), accessing p1[7] or p1[-4] is undefined behavior (out-of-bounds).", c: true },
@@ -94,6 +100,7 @@ p2[-4] = 2.4; // Error`,
 int *p2 = p1;
 float *p3 = p1; // Error
 char  *p4 = p1; // Error`,
+    points: 1,
     opts: [
       { s: "A pointer does not know the actual type of object it points to; it just knows the address and assumes the declared type.", c: true },
       { s: "p2 = p1 is valid because both are int*.", c: true },
@@ -113,6 +120,7 @@ delete v1;
 delete v2;
 delete[] vect1;
 delete p;`,
+    points: 1,
     opts: [
       { s: "delete frees memory allocated for a single object and calls its destructor.", c: true },
       { s: "delete[] frees memory allocated for an array and calls the destructor for each element.", c: true },
@@ -129,6 +137,7 @@ delete p;`,
 }
 ...
 my_type *p = my_func(arg);`,
+    points: 1,
     opts: [
       { s: "The dynamically allocated object pointed to by p exists until it is explicitly deleted.", c: true },
       { s: "If p goes out of scope, the pointer is destroyed, but the memory it points to is NOT automatically freed.", c: true },
@@ -152,6 +161,7 @@ int main() {
   std::cout << *box1.v;
   return 0;
 }`,
+    points: 1,
     opts: [
       { s: "A shallow copy duplicates the pointer value (memory address), not the data it points to.", c: true },
       { s: "After Box box2 = box1;, both box1.v and box2.v point to the same int in memory.", c: true },
@@ -176,6 +186,7 @@ int main() {
   std::cout << *box1.v;
   return 0;
 }`,
+    points: 1,
     opts: [
       { s: "A deep copy duplicates the object and all objects it refers to recursively.", c: true },
       { s: "The user-defined copy constructor allocates new memory for box2.v and copies the value from box1.v.", c: true },
@@ -188,6 +199,7 @@ int main() {
     topic: "Dangling pointers",
     text: "Dangling pointers",
     code: null,
+    points: 1,
     opts: [
       { s: "A dangling pointer is one that points to memory that has been freed but still holds a valid memory address.", c: true },
       { s: "Dangling pointers are generated when memory is released (e.g., via delete), but the pointer variable is not reset.", c: true },
@@ -200,6 +212,7 @@ int main() {
     topic: "Memory leaks",
     text: "Memory leaks",
     code: null,
+    points: 1,
     opts: [
       { s: "A memory leak occurs when dynamically allocated memory is not freed, and the program loses all references to it.", c: true },
       { s: "If a function leaks 1 byte but is called 10^7 times, the program leaks ~10 MB total.", c: true },
@@ -216,6 +229,7 @@ delete ptr;
 int *ptr = nullptr;
 delete ptr;
 ptr = nullptr;`,
+    points: 1,
     opts: [
       { s: "Setting a pointer to nullptr when defining it or after deleting it helps avoid dangling pointers.", c: true },
       { s: "Calling delete on a nullptr is safe and does nothing.", c: true },
@@ -232,6 +246,7 @@ auto q = p;
 ...
 delete p;
 p = nullptr;`,
+    points: 1,
     opts: [
       { s: "After delete p; p = nullptr;, p is safe (points to nullptr), but q is still dangling.", c: true },
       { s: "Resetting p has no effect on q, which still holds the address of the freed memory.", c: true },
@@ -252,6 +267,7 @@ p = nullptr;`,
   delete[] buffer;
   return;
 }`,
+    points: 1,
     opts: [
       { s: "If condition is true, the function returns early without calling delete[] buffer, causing a memory leak.", c: true },
       { s: "The compiler automatically inserts delete[] buffer before any return statement, preventing leaks.", c: false },
@@ -264,6 +280,7 @@ p = nullptr;`,
     topic: "RAII",
     text: "RAII (Resource Acquisition Is Initialization)",
     code: null,
+    points: 1,
     opts: [
       { s: "RAII binds the lifetime of a resource to the lifetime of an object (e.g., a smart pointer).", c: true },
       { s: "The resource is acquired in the constructor and released in the destructor, ensuring automatic cleanup.", c: true },
@@ -276,6 +293,7 @@ p = nullptr;`,
     topic: "Smart pointers overview",
     text: "Smart pointers overview",
     code: null,
+    points: 1,
     opts: [
       { s: "C++ offers three types of smart pointers: shared_ptr, unique_ptr, and weak_ptr.", c: true },
       { s: "Smart pointers are templates and work with all types.", c: true },
@@ -288,6 +306,7 @@ p = nullptr;`,
     topic: "shared_ptr reference counting",
     text: "shared_ptr and reference counting",
     code: null,
+    points: 1,
     opts: [
       { s: "shared_ptr uses a reference count to track how many pointers share ownership of a resource.", c: true },
       { s: "The reference count is incremented when we copy the shared_ptr.", c: true },
@@ -302,6 +321,7 @@ p = nullptr;`,
     code: `shared_ptr<int> p1 = new int(42); // Error
 shared_ptr<int> p2(new int(42));  // OK
 shared_ptr<int> p3 = shared_ptr<int>(new int(9)); // OK`,
+    points: 1,
     opts: [
       { s: "p1 is correct because implicit conversion from raw pointer to shared_ptr is allowed.", c: false },
       { s: "p1 is an error because shared_ptr does not allow implicit conversion from a raw pointer.", c: true },
@@ -314,6 +334,7 @@ shared_ptr<int> p3 = shared_ptr<int>(new int(9)); // OK`,
     topic: "make_shared",
     text: "make_shared (recommended)",
     code: null,
+    points: 1,
     opts: [
       { s: "make_shared<T>(args) allocates and initializes an object of type T and returns a shared_ptr pointing to it.", c: true },
       { s: "make_shared performs a single memory allocation that includes both the object and its control block (reference counter).", c: true },
@@ -326,6 +347,7 @@ shared_ptr<int> p3 = shared_ptr<int>(new int(9)); // OK`,
     topic: "unique_ptr allocation",
     text: "unique_ptr allocation",
     code: `std::unique_ptr<int> valuePtr(new int(15));`,
+    points: 1,
     opts: [
       { s: "unique_ptr represents exclusive ownership of a dynamically allocated object.", c: true },
       { s: "unique_ptr does not have a make_unique function (in C++11), so we must use new.", c: true },
@@ -344,6 +366,7 @@ shared_ptr<int> p3 = shared_ptr<int>(new int(9)); // OK`,
     return;
   ...
 }`,
+    points: 1,
     opts: [
       { s: "There is no memory leak, even if the function returns early via if (...).", c: true },
       { s: "The unique_ptr destructor automatically deletes the allocated memory when it goes out of scope.", c: true },
@@ -362,6 +385,7 @@ unique_ptr<int> clone2(int p) {
   unique_ptr<int> lp(new int(p));
   return lp;
 }`,
+    points: 1,
     opts: [
       { s: "We cannot copy a unique_ptr, but we can return a local unique_ptr from a function (move semantics apply).", c: true },
       { s: "clone1 directly returns a newly created unique_ptr.", c: true },
@@ -374,6 +398,7 @@ unique_ptr<int> clone2(int p) {
     topic: "weak_ptr overview",
     text: "weak_ptr overview",
     code: null,
+    points: 1,
     opts: [
       { s: "weak_ptr is a smart pointer that does not control the lifetime of the object it points to.", c: true },
       { s: "weak_ptr points to an object managed by a shared_ptr without increasing the reference count.", c: true },
@@ -397,6 +422,7 @@ if (p3 = wp.lock()) {
 p1.reset(new person("rose"));
 p2.reset();
 p3.reset();`,
+    points: 1,
     opts: [
       { s: "wp is a weak_ptr initialized from p1; it does not increase the reference count.", c: true },
       { s: "wp.lock() returns a shared_ptr if the object still exists; otherwise, it returns a null shared_ptr.", c: true },
@@ -413,6 +439,7 @@ public:
   Foo();            // Primary constructor
   Foo(const Foo&); // Copy constructor
 };`,
+    points: 1,
     opts: [
       { s: "A copy constructor creates a new object as a copy of an existing object of the same class.", c: true },
       { s: "The copy constructor has the same name as the class and takes a reference to a const object of the same type.", c: true },
@@ -429,6 +456,7 @@ void foo(MyClass obj);
 foo(obj1);
 MyClass foo() { MyClass temp; return temp; }
 MyClass my = foo();`,
+    points: 1,
     opts: [
       { s: "The copy constructor is called when creating a new object using an existing object (MyClass obj2 = obj1;).", c: true },
       { s: "The copy constructor is called when an object is passed by value to a function (foo(obj1);).", c: true },
@@ -454,6 +482,7 @@ Class::Class(const char *s) {
 Class::~Class() { delete[] str; }
 // Compiler-generated:
 Class::Class(const Class &another) { str = another.str; }`,
+    points: 1,
     opts: [
       { s: "The synthesized copy constructor copies each non-static member from the given object to the created object.", c: true },
       { s: "In this case, the synthesized copy constructor copies the pointer str, not the string data (shallow copy).", c: true },
@@ -469,6 +498,7 @@ Class::Class(const Class &another) { str = another.str; }`,
   str = new char[strlen(another.str)+1];
   strcpy(str, another.str);
 }`,
+    points: 1,
     opts: [
       { s: "This user-defined copy constructor allocates new memory for str and copies the string data (deep copy).", c: true },
       { s: "After the copy, each object has its own independent copy of the string, avoiding double-delete errors.", c: true },
@@ -486,6 +516,7 @@ string s3 = s1;
 string s4 = "1234567890";
 string s5 = string(100, '9');
 string s6;`,
+    points: 1,
     opts: [
       { s: "Direct initialization calls the primary constructor that best matches the arguments.", c: true },
       { s: "Copy initialization calls the copy constructor to copy the right-hand operand into the object being created.", c: true },
@@ -503,6 +534,7 @@ public:
   Foo(const Foo&);
   Foo& operator=(const Foo&);
 };`,
+    points: 1,
     opts: [
       { s: "The copy assignment operator is used to assign the contents of one object to another object of the same class when both objects already exist.", c: true },
       { s: "The copy assignment operator has the name operator= and takes a reference to a const object of the same type.", c: true },
@@ -518,6 +550,7 @@ public:
 MyClass foo() { MyClass temp; return temp; }
 MyClass my1 = foo();
 my2 = my1;`,
+    points: 1,
     opts: [
       { s: "The copy assignment operator is called when you use = to assign one object to another and both objects already exist (obj2 = obj1;).", c: true },
       { s: "MyClass my1 = foo(); may use the copy constructor (or move constructor), not the copy assignment operator.", c: true },
@@ -535,6 +568,7 @@ my2 = my1;`,
   revenue = orig.revenue;
   return *this;
 }`,
+    points: 1,
     opts: [
       { s: "The synthesized copy assignment operator assigns each non-static member from the source object to the target object.", c: true },
       { s: "The user-defined copy assignment operator shown is equivalent to the synthesized version for this class.", c: true },
@@ -547,6 +581,7 @@ my2 = my1;`,
     topic: "Rule of Three",
     text: "The Rule of Three",
     code: null,
+    points: 1,
     opts: [
       { s: "If you define any of the destructor, copy constructor, or copy assignment operator, you should define all three.", c: true },
       { s: "The Rule of Three ensures that your class correctly manages resources (e.g., memory) when objects are copied, assigned, or destroyed.", c: true },
@@ -559,6 +594,7 @@ my2 = my1;`,
     topic: "Move semantics motivation",
     text: "Move semantics motivation",
     code: null,
+    points: 1,
     opts: [
       { s: "Move semantics allow \"moving\" instead of copying resources when the source object is about to be destroyed.", c: true },
       { s: "Moving can enhance performance by avoiding unnecessary copying of resource-heavy objects.", c: true },
@@ -574,6 +610,7 @@ my2 = my1;`,
 public:
   Foo(Foo&&) noexcept { ... };
 };`,
+    points: 1,
     opts: [
       { s: "A move constructor transfers ownership of resources from a temporary object to a new object.", c: true },
       { s: "The move constructor takes an rvalue reference (Foo&&) as its argument.", c: true },
@@ -592,6 +629,7 @@ std::vector<MyClass> vec(10);
 vec.resize(100);
 MyClass obj1;
 MyClass obj2 = std::move(obj1);`,
+    points: 1,
     opts: [
       { s: "The move constructor is called for temporary object initialization (MyClass obj2 = MyClass(obj1);).", c: true },
       { s: "The move constructor is called when pushing a temporary into a container (vec.push_back(MyClass());).", c: true },

@@ -22,7 +22,8 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ unit, onExit }) => {
     prevQuestion,
     restartQuiz,
     score,
-    total,
+    totalPoints,
+    totalQuestions,
   } = useQuiz(unit);
 
   if (isFinalResults) {
@@ -30,7 +31,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ unit, onExit }) => {
       <div className="quiz-view">
         <ResultSummary
           score={score}
-          total={total}
+          total={totalPoints}
           onRestart={restartQuiz}
           onExit={onExit}
         />
@@ -46,8 +47,9 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ unit, onExit }) => {
         unitLabel={unit.unitLabel || unit.tag}
         title={unit.quizTitle || unit.title}
         currentIndex={currentIndex}
-        total={total}
+        total={totalQuestions}
         score={score}
+        maxPoints={totalPoints}
         onExit={onExit}
         onRestart={restartQuiz}
       />
@@ -77,10 +79,9 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ unit, onExit }) => {
         <button
           className="sbtn"
           onClick={nextQuestion}
-          disabled={!isSubmitted[currentIndex]}
           style={{ background: 'var(--text)', color: 'var(--bg)' }}
         >
-          {currentIndex === total - 1 ? "Finish Quiz" : "Next Question"}
+          {currentIndex === totalQuestions - 1 ? "Finish Quiz" : "Next Question"}
           <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2.5" fill="none" style={{ marginLeft: '6px', verticalAlign: 'middle' }}>
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>

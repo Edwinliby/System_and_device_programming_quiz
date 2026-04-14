@@ -6,6 +6,7 @@ interface QuizHeaderProps {
   currentIndex: number;
   total: number;
   score: number;
+  maxPoints: number;
   onExit: () => void;
   onRestart: () => void;
 }
@@ -16,6 +17,7 @@ const QuizHeader: React.FC<QuizHeaderProps> = ({
   currentIndex,
   total,
   score,
+  maxPoints,
   onExit,
   onRestart,
 }) => {
@@ -50,8 +52,8 @@ const QuizHeader: React.FC<QuizHeaderProps> = ({
         </div>
         <div className="sep"></div>
         <div className="si ok">
-          <span className="v">{score}</span>
-          <span className="l">Points</span>
+          <span className="v">{score.toFixed(1)}/{maxPoints.toFixed(0)}</span>
+          <span className="l">Points Earned</span>
         </div>
         <div className="sep"></div>
         <div className="pw">

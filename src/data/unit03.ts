@@ -5,6 +5,7 @@ export const unit03Questions: Question[] = [
     topic: "C/C++ projects",
     text: "In C/C++ projects",
     code: null,
+    points: 1,
     opts: [
       { s: "A C++ source file typically uses the extension .cpp.", c: true },
       { s: "Header files may use extensions such as .h or .hpp.", c: true },
@@ -17,6 +18,7 @@ export const unit03Questions: Question[] = [
     topic: "IO streams",
     text: "IO streams and basic console IO",
     code: null,
+    points: 1,
     opts: [
       { s: "std::cout is the standard output stream in C++.", c: true },
       { s: "std::cin is the standard input stream in C++.", c: true },
@@ -29,6 +31,7 @@ export const unit03Questions: Question[] = [
     topic: "Namespaces",
     text: "Namespaces and using",
     code: null,
+    points: 1,
     opts: [
       { s: "A namespace groups identifiers to avoid name collisions.", c: true },
       { s: "std is the namespace that contains the standard C++ library facilities.", c: true },
@@ -41,6 +44,7 @@ export const unit03Questions: Question[] = [
     topic: "Arithmetic & literals",
     text: "Basic arithmetic and literals",
     code: null,
+    points: 1,
     opts: [
       { s: "Integer literals can be written in decimal, octal, or hexadecimal in C++.", c: true },
       { s: "A floating-point literal must always use an exponent part (e.g., 1.0e3).", c: false },
@@ -53,6 +57,7 @@ export const unit03Questions: Question[] = [
     topic: "Fundamental types",
     text: "Fundamental types and qualifiers",
     code: null,
+    points: 1,
     opts: [
       { s: "The type bool can hold the values 1 and 0.", c: true },
       { s: "A const object must be initialized at the point of definition.", c: true },
@@ -65,6 +70,7 @@ export const unit03Questions: Question[] = [
     topic: "Pointers",
     text: "Pointers",
     code: null,
+    points: 1,
     opts: [
       { s: "A pointer stores the address of another object.", c: true },
       { s: "The size of a pointer depends on the type it points to.", c: false },
@@ -77,6 +83,7 @@ export const unit03Questions: Question[] = [
     topic: "References",
     text: "References",
     code: null,
+    points: 1,
     opts: [
       { s: "A reference is an alternative name (alias) for an existing object.", c: true },
       { s: "A reference does not have to be initialized when it is defined.", c: false },
@@ -89,6 +96,7 @@ export const unit03Questions: Question[] = [
     topic: "const and pointers",
     text: "const and pointers",
     code: null,
+    points: 1,
     opts: [
       { s: "A \"top-level const\" applies to the object pointed itself.", c: true },
       { s: "A \"low-level const\" applies to the pointer object to.", c: true },
@@ -101,6 +109,7 @@ export const unit03Questions: Question[] = [
     topic: "volatile",
     text: "volatile and hardware interaction",
     code: null,
+    points: 1,
     opts: [
       { s: "volatile prevents certain compiler optimizations on accesses to the variable.", c: true },
       { s: "volatile is often used for memory-mapped I/O registers.", c: true },
@@ -113,6 +122,7 @@ export const unit03Questions: Question[] = [
     topic: "auto & decltype",
     text: "auto and decltype",
     code: null,
+    points: 1,
     opts: [
       { s: "The keyword auto lets the compiler deduce the type of a variable from its initializer.", c: true },
       { s: "A variable declared with auto must have an initializer.", c: true },
@@ -125,6 +135,7 @@ export const unit03Questions: Question[] = [
     topic: "Control statements",
     text: "Control statements",
     code: null,
+    points: 1,
     opts: [
       { s: "C++ supports if, if-else, and switch for conditional execution.", c: true },
       { s: "The while and do-while statements are both used for loops.", c: true },
@@ -137,6 +148,7 @@ export const unit03Questions: Question[] = [
     topic: "Exceptions",
     text: "Exceptions (basic)",
     code: null,
+    points: 1,
     opts: [
       { s: "throw is used to signal that an exceptional condition has occurred.", c: true },
       { s: "try blocks contain code that might throw exceptions.", c: true },
@@ -149,6 +161,7 @@ export const unit03Questions: Question[] = [
     topic: "Old-style & static_cast",
     text: "Old-style casts and static_cast",
     code: null,
+    points: 1,
     opts: [
       { s: "static_cast can safely cast between completely unrelated pointer types.", c: false },
       { s: "A C-style cast can behave like static_cast, const_cast, or reinterpret_cast depending on context.", c: true },
@@ -161,6 +174,7 @@ export const unit03Questions: Question[] = [
     topic: "const_cast",
     text: "const_cast",
     code: null,
+    points: 1,
     opts: [
       { s: "const_cast can remove const qualification from a pointer or reference type.", c: true },
       { s: "Writing through a pointer obtained by const_cast from a truly const object has undefined behavior.", c: true },
@@ -173,6 +187,7 @@ export const unit03Questions: Question[] = [
     topic: "reinterpret_cast",
     text: "reinterpret_cast",
     code: null,
+    points: 1,
     opts: [
       { s: "reinterpret_cast is intended for low-level, implementation-dependent conversions.", c: true },
       { s: "reinterpret_cast can be used to view the bit pattern of a float as an int.", c: true },
@@ -185,6 +200,7 @@ export const unit03Questions: Question[] = [
     topic: "Function basics",
     text: "Function basics",
     code: null,
+    points: 1,
     opts: [
       { s: "A C++ function has a return type, a name, and a parameter list.", c: true },
       { s: "A function that does not return a value should be declared with return type void.", c: true },
@@ -197,6 +213,7 @@ export const unit03Questions: Question[] = [
     topic: "Parameter passing",
     text: "Parameter passing (value, pointer, reference)",
     code: null,
+    points: 1,
     opts: [
       { s: "Passing by value copies the argument into the function parameter.", c: true },
       { s: "Changes to a parameter passed by value affect the caller's variable.", c: false },
@@ -210,6 +227,7 @@ export const unit03Questions: Question[] = [
     topic: "Swapping pitfalls",
     text: "Common pitfalls in swapping",
     code: null,
+    points: 1,
     opts: [
       { s: "A swap function that takes arguments by value will not swap the caller's variables.", c: true },
       { s: "To swap caller variables, swap should use reference parameters.", c: true },
@@ -222,6 +240,7 @@ export const unit03Questions: Question[] = [
     topic: "Const parameters",
     text: "Constant parameters in functions",
     code: null,
+    points: 1,
     opts: [
       { s: "Parameters that a function does not modify should be declared const when passed by reference.", c: true },
       { s: "Declaring a parameter const makes it illegal to modify that parameter inside the function.", c: true },
@@ -234,6 +253,7 @@ export const unit03Questions: Question[] = [
     topic: "Variadic functions",
     text: "Functions with varying parameters",
     code: null,
+    points: 1,
     opts: [
       { s: "C++ supports parameter packs via templates for variadic functions.", c: true },
       { s: "std::initializer_list can be used when all varying arguments share the same type.", c: true },
@@ -246,6 +266,7 @@ export const unit03Questions: Question[] = [
     topic: "Overloading",
     text: "Function overloading",
     code: null,
+    points: 1,
     opts: [
       { s: "In C++, multiple functions can have the same name in the same scope.", c: true },
       { s: "Overloaded functions cannot differ in their parameter list.", c: false },
@@ -258,6 +279,7 @@ export const unit03Questions: Question[] = [
     topic: "Default arguments",
     text: "Default arguments",
     code: null,
+    points: 1,
     opts: [
       { s: "A parameter with a default argument may be omitted at the call site.", c: true },
       { s: "If a parameter has a default value, all previous parameters must also have default values.", c: false },
@@ -270,6 +292,7 @@ export const unit03Questions: Question[] = [
     topic: "Function pointers",
     text: "Pointers to functions (conceptual)",
     code: null,
+    points: 1,
     opts: [
       { s: "A function pointer can point to objects as well as functions.", c: false },
       { s: "The name of a function can decay to a pointer to that function.", c: true },
@@ -282,6 +305,7 @@ export const unit03Questions: Question[] = [
     topic: "Classes",
     text: "Classes and basic concepts",
     code: null,
+    points: 1,
     opts: [
       { s: "A class defines a new type that bundles data and related operations.", c: true },
       { s: "Member functions are also called methods.", c: true },
@@ -294,6 +318,7 @@ export const unit03Questions: Question[] = [
     topic: "struct vs class",
     text: "Struct vs class and access",
     code: null,
+    points: 1,
     opts: [
       { s: "For a struct, members are private by default.", c: false },
       { s: "For a class, members are public by default.", c: false },
@@ -306,6 +331,7 @@ export const unit03Questions: Question[] = [
     topic: "Encapsulation",
     text: "Encapsulation and access control",
     code: null,
+    points: 1,
     opts: [
       { s: "Encapsulation groups data and methods into a single unit.", c: true },
       { s: "Encapsulation helps separate interface from implementation.", c: true },
@@ -318,6 +344,7 @@ export const unit03Questions: Question[] = [
     topic: "this pointer",
     text: "Objects and the \"this\" pointer",
     code: null,
+    points: 1,
     opts: [
       { s: "An object is an instance of a class.", c: true },
       { s: "Each object of a given class has its own copy of the non-static data members.", c: true },
@@ -330,6 +357,7 @@ export const unit03Questions: Question[] = [
     topic: "Inheritance",
     text: "Inheritance",
     code: null,
+    points: 1,
     opts: [
       { s: "Inheritance allows creating new classes based on existing ones.", c: true },
       { s: "A derived class can only change members of the base class.", c: false },
@@ -342,6 +370,7 @@ export const unit03Questions: Question[] = [
     topic: "Constructors & destructors",
     text: "Constructors and destructors",
     code: null,
+    points: 1,
     opts: [
       { s: "A constructor is a special member function that initializes an object.", c: true },
       { s: "A default constructor takes no parameters.", c: true },
@@ -354,6 +383,7 @@ export const unit03Questions: Question[] = [
     topic: "Resource-managing classes",
     text: "Resource-managing classes (simple example)",
     code: null,
+    points: 1,
     opts: [
       { s: "A class that allocates dynamic memory should typically release it in its destructor.", c: true },
       { s: "Failing to free dynamically allocated memory in a destructor may cause memory leaks.", c: true },

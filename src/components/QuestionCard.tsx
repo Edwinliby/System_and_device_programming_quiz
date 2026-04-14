@@ -68,21 +68,35 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
           >
             Submit Answer
           </button>
-        ) : (
-          <span className={`rt ${
-            question.opts.every((o, i) => o.c === selectedOptions.includes(i)) 
-              ? "full" 
-              : selectedOptions.some(i => question.opts[i].c) 
-                ? "partial" 
-                : "zero"
-          }`}>
-            {question.opts.every((o, i) => o.c === selectedOptions.includes(i)) 
-              ? "Correct" 
-              : selectedOptions.some(i => question.opts[i].c) 
-                ? "Partial" 
-                : "Incorrect"}
-          </span>
-        )}
+        ) : (() => {
+          const qPoints = question.points || 1;
+          const correctIndices = question.opts.map((o, i) => o.c ? i : -1).filter(i => i !== -1);
+          const wrongIndices = question.opts.map((o, i) => !o.c ? i : -1).filter(i => i !== -1);
+          
+          let earned = 0;
+          selectedOptions.forEach(idx => {
+            if (question.opts[idx].c) {
+              if (correctIndices.length > 0) earned += qPoints / correctIndices.length;
+            } else {
+              if (wrongIndices.length > 0) earned -= qPoints / wrongIndices.length;
+            }
+          });
+
+          const isPerfect = question.opts.every((o, i) => o.c === selectedOptions.includes(i));
+          const isNegative = earned < 0;
+          const isZero = earned === 0;
+
+          return (
+            <div className="earned-pts">
+              <span className={`rt ${isPerfect ? "full" : isNegative ? "zero" : isZero ? "zero" : "partial"}`}>
+                {isPerfect ? "Correct" : isNegative ? "Penalty" : isZero ? "Incorrect" : "Partial"}
+              </span>
+              <span className="pts-val">
+                {earned.toFixed(1)} / {qPoints.toFixed(1)} pts
+              </span>
+            </div>
+          );
+        })()}
       </div>
     </div>
   );

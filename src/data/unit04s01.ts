@@ -6,6 +6,7 @@ export const unit04s01Questions: Question[] = [
     topic: "Text and binary files",
     text: "Text and binary files",
     code: null,
+    points: 1,
     opts: [
       { s: "In Unix/Linux, the kernel natively distinguishes between text and binary files using different file types.", c: false },
       { s: "A file is basically a sequence of bytes written one after the other on disk.", c: true },
@@ -18,6 +19,7 @@ export const unit04s01Questions: Question[] = [
     topic: "Newline conventions",
     text: "Newline conventions in text files",
     code: null,
+    points: 1,
     opts: [
       { s: "On Unix/Linux and macOS, a newline is represented by a single character, typically Line Feed (LF, 10).", c: true },
       { s: "On Windows, a newline is represented by a sequence of two characters: LF and CR together.", c: true },
@@ -30,6 +32,7 @@ export const unit04s01Questions: Question[] = [
     topic: "C++ I/O headers",
     text: "Basic C++ I/O headers",
     code: null,
+    points: 1,
     opts: [
       { s: "<iostream> provides the basic I/O functionalities for standard streams like cin and cout.", c: true },
       { s: "<sstream> provides classes to perform input and output operations on std::string objects.", c: true },
@@ -42,6 +45,7 @@ export const unit04s01Questions: Question[] = [
     topic: "Stream states",
     text: "Stream states and error handling",
     code: null,
+    points: 1,
     opts: [
       { s: "Once an input error occurs on a stream, subsequent I/O operations will generally fail until the state is cleared.", c: true },
       { s: "Using if (cin >> s) { ... } is a common way to test if an input operation succeeded.", c: true },
@@ -55,6 +59,7 @@ export const unit04s01Questions: Question[] = [
     topic: "File modes",
     text: "File modes with fstreams",
     code: null,
+    points: 1,
     opts: [
       { s: "std::ios::in opens a file for input operations.", c: true },
       { s: "std::ios::out opens a file for output operations.", c: true },
@@ -68,6 +73,7 @@ export const unit04s01Questions: Question[] = [
     topic: "Opening ofstream",
     text: "Opening files with ofstream",
     code: null,
+    points: 1,
     opts: [
       { s: "std::ofstream out(\"myfile\"); opens myfile for output, truncating it by default.", c: true },
       { s: "std::ofstream out(\"myfile\", std::ofstream::app); opens myfile for appending, preserving existing content.", c: true },
@@ -90,6 +96,7 @@ if (inF.is_open()) {
   inF.read(reinterpret_cast<char*>(&v2), sizeof(v2));
   inF.close();
 }`,
+    points: 1,
     opts: [
       { s: "std::ios::binary tells the library to treat the file as binary, avoiding newline translations.", c: true },
       { s: "reinterpret_cast<const char*>(&v1) converts the address of v1 to a const char* pointer required by write.", c: true },
@@ -102,6 +109,7 @@ if (inF.is_open()) {
     topic: "Seeking in files",
     text: "Seeking in files",
     code: null,
+    points: 1,
     opts: [
       { s: "seekg is used to move the next read position (get pointer) within a stream.", c: true },
       { s: "seekp is used to move the next write position (put pointer) within a stream.", c: true },
@@ -119,6 +127,7 @@ file.seekp(sizeof(data2), std::ios::cur);
 file.write(reinterpret_cast<const char*>(&data3), sizeof(data3));
 file.seekp(sizeof(data1), std::ios::beg);
 file.write(reinterpret_cast<const char*>(&data2), sizeof(data2));`,
+    points: 1,
     opts: [
       { s: "The first write stores data1 at the beginning of the file.", c: true },
       { s: "After seekp(sizeof(data2), std::ios::cur), the file position is advanced as if data2 had been written.", c: true },
@@ -134,6 +143,7 @@ file.write(reinterpret_cast<const char*>(&data2), sizeof(data2));`,
 std::cout << std::right << std::setw(10) << 123 << std::endl;
 std::cout << std::left  << std::setw(10) << "Hello" << std::endl;
 std::cout << std::internal << std::setw(10) << -456 << std::endl;`,
+    points: 1,
     opts: [
       { s: "std::setw(10) sets the width of the next output field to 10 characters.", c: true },
       { s: "std::right causes the following text/numbers to be right-aligned in that field.", c: true },
@@ -153,6 +163,7 @@ int v3[N1] = {1,2,3,4,5};
 int v4[N2] = {1,2,3,4,5};
 int v5[5] = {1,2,3,4,5};
 v2 = v3;`,
+    points: 1,
     opts: [
       { s: "v1 is an uninitialized array of 10 integers.", c: true },
       { s: "v2 is an array whose size is deduced from the initializer list {1,2,3,4,5}.", c: true },
@@ -169,6 +180,7 @@ v2 = v3;`,
 char s2[] = {'C','+','+','\\0'};
 char s3[] = "C++";
 char s4[3] = "C++";`,
+    points: 1,
     opts: [
       { s: "s1 is not null-terminated and therefore is not a proper C-style string.", c: true },
       { s: "s2 explicitly contains the null terminator '\\0'.", c: true },
@@ -186,6 +198,7 @@ char s2[] = "C--";
 char s3[] = "C++";
 s2 = s3;
 if (s2 == s3) { /* ... */ }`,
+    points: 1,
     opts: [
       { s: "std::cout << s1; safely prints \"C++\" because the array has 3 characters.", c: false },
       { s: "std::cout << s2; is valid since s2 is null-terminated.", c: true },
@@ -206,6 +219,7 @@ for (p = b; p < e; p++)
   std::cout << *p << std::endl;
 p = v;
 int *p2 = p + 4;`,
+    points: 1,
     opts: [
       { s: "p = &v[0]; makes p point to the first element of the array.", c: true },
       { s: "b points to v[0] and e points one past the last element v[9].", c: true },
@@ -228,6 +242,7 @@ int m3[3][4] = {
   4, 5, 6, 7,
   8, 9,10,11
 };`,
+    points: 1,
     opts: [
       { s: "m1 is an uninitialized 2D array of 3×4 integers.", c: true },
       { s: "m2 is initialized row by row with nested braces.", c: true },
@@ -247,6 +262,7 @@ for (auto &r : m) {
     std::cin >> c;
   }
 }`,
+    points: 1,
     opts: [
       { s: "The outer loop iterates over each row (which is itself an array of int).", c: true },
       { s: "Using auto &r avoids copying entire rows and is necessary when working with a C-style array here.", c: true },
@@ -263,6 +279,7 @@ for (auto &r : m) {
     std::cout << c;
   }
 }`,
+    points: 1,
     opts: [
       { s: "The code is correct and equivalent to using references in both loops.", c: false },
       { s: "The outer loop should use a reference (auto &r) to avoid copying rows.", c: true },
@@ -275,6 +292,7 @@ for (auto &r : m) {
     topic: "Sequential containers",
     text: "Sequential containers – general properties",
     code: null,
+    points: 1,
     opts: [
       { s: "A container is an object that stores other objects and manages the storage space for them.", c: true },
       { s: "Sequential containers provide fast sequential access to their elements.", c: true },
@@ -287,6 +305,7 @@ for (auto &r : m) {
     topic: "Iterator categories",
     text: "Iterator categories in the standard library",
     code: null,
+    points: 1,
     opts: [
       { s: "std::vector provides random-access iterators.", c: true },
       { s: "std::deque provides random-access iterators.", c: true },
@@ -300,6 +319,7 @@ for (auto &r : m) {
     topic: "Basic vector operations",
     text: "Basic vector operations",
     code: null,
+    points: 1,
     opts: [
       { s: "std::vector<T> v; default-constructs an empty vector.", c: true },
       { s: "v.empty() returns true if the vector has no elements.", c: true },
@@ -313,6 +333,7 @@ for (auto &r : m) {
     topic: "Vector initialization",
     text: "Vector initialization forms",
     code: null,
+    points: 1,
     opts: [
       { s: "std::vector<int> v1; creates an empty vector of int.", c: true },
       { s: "std::vector<int> v2 = v1; copies all elements from v1 into v2.", c: true },
@@ -325,6 +346,7 @@ for (auto &r : m) {
     topic: "Vector time complexity",
     text: "Time complexity of vector operations",
     code: null,
+    points: 1,
     opts: [
       { s: "Random access using v[n] is typically O(1).", c: true },
       { s: "Back insertion (push_back) is typically O(1) but can be O(n) in the worst case due to reallocation.", c: true },
@@ -337,6 +359,7 @@ for (auto &r : m) {
     topic: "Iterator operations on vectors",
     text: "Iterator operations on vectors",
     code: null,
+    points: 1,
     opts: [
       { s: "auto b = v.begin(); yields an iterator to the first element.", c: true },
       { s: "auto e = v.end(); yields an iterator one past the last element.", c: true },
@@ -355,6 +378,7 @@ for (auto it = v.begin(); it != v.end(); ++it) {
     ++it;
   }
 }`,
+    points: 1,
     opts: [
       { s: "The code scans the vector and inserts \"foo\" before each 3-letter string.", c: true },
       { s: "After insert, the iterator it is updated to point to the newly inserted element.", c: true },
@@ -373,6 +397,7 @@ for (auto it = v.begin(); it != v.end(); ++it) {
     ++it;
   }
 }`,
+    points: 1,
     opts: [
       { s: "erase removes the element pointed to by it and returns a new iterator to the next element.", c: true },
       { s: "Assigning it = v.erase(it); is the correct way to keep the iterator valid after erasure.", c: true },
@@ -394,6 +419,7 @@ while (it != v.end()) {
     it = v.erase(it);
   }
 }`,
+    points: 1,
     opts: [
       { s: "Inserting into a std::vector can invalidate existing iterators.", c: true },
       { s: "The code adjusts it after insertion and erasure to avoid skipping or reprocessing elements.", c: true },
@@ -406,6 +432,7 @@ while (it != v.end()) {
     topic: "Associative container types",
     text: "Associative containers – types",
     code: null,
+    points: 1,
     opts: [
       { s: "std::map is an associative array holding key–value pairs.", c: true },
       { s: "std::set is a container where each element is a key.", c: true },
@@ -419,6 +446,7 @@ while (it != v.end()) {
     topic: "Associative container operations",
     text: "Main operations on associative containers",
     code: null,
+    points: 1,
     opts: [
       { s: "c.insert(v) inserts an element v into the associative container c.", c: true },
       { s: "c.emplace(args) constructs an element from args and inserts it into c.", c: true },
@@ -432,6 +460,7 @@ while (it != v.end()) {
     topic: "Extra associative operations",
     text: "Extra operations on associative containers",
     code: null,
+    points: 1,
     opts: [
       { s: "c.find(k) returns an iterator to the first element with key k or c.end() if not found.", c: true },
       { s: "c.count(k) returns the number of elements with key k.", c: true },
@@ -445,6 +474,7 @@ while (it != v.end()) {
     topic: "Maps and pair",
     text: "Maps and the pair type",
     code: null,
+    points: 1,
     opts: [
       { s: "Elements of std::map are of type std::pair<const Key, T>.", c: true },
       { s: "Each pair has public data members first and second.", c: true },
@@ -464,6 +494,7 @@ for (const auto &w : word_count) {
   std::cout << w.first << " occurs "
             << w.second << " time(s).\\n";
 }`,
+    points: 1,
     opts: [
       { s: "word_count maps each distinct word to its frequency.", c: true },
       { s: "++word_count[word]; inserts a new key with value 0 if the word is not present, then increments it.", c: true },
@@ -480,6 +511,7 @@ for (const auto &w : word_count) {
   if (!ret.second)
     ++ret.first->second;
 }`,
+    points: 1,
     opts: [
       { s: "insert({word,1}) tries to insert the pair <word,1> into the map.", c: true },
       { s: "ret.second is true if a new element was inserted and false if the key already existed.", c: true },
@@ -496,6 +528,7 @@ auto it1 = is.find(1);
 auto it2 = is.find(11);
 auto n1  = is.count(1);
 auto n2  = is.count(11);`,
+    points: 1,
     opts: [
       { s: "is is a set containing integers from 0 to 9.", c: true },
       { s: "it1 refers to the element with key 1.", c: true },
@@ -512,6 +545,7 @@ auto n2  = is.count(11);`,
 std::vector<int> iv = {2,4,6,8,2,4,6,8,2,4,6,8};
 myset.insert(iv.begin(), iv.end());
 myset.insert({1,3,5,7,1,3,5,7});`,
+    points: 1,
     opts: [
       { s: "After the first insert, myset contains {2,4,6,8}.", c: true },
       { s: "After the second insert, myset contains {1,2,3,4,5,6,7,8}.", c: true },
@@ -532,6 +566,7 @@ std::string word;
 while (std::cin >> word)
   if (exclude.find(word) == exclude.end())
     ++word_count[word];`,
+    points: 1,
     opts: [
       { s: "exclude stores words to ignore when counting frequencies.", c: true },
       { s: "The condition exclude.find(word) == exclude.end() means \"word is not in the exclude set\".", c: true },
@@ -544,6 +579,7 @@ while (std::cin >> word)
     topic: "Generic algorithms",
     text: "Generic algorithms and headers",
     code: null,
+    points: 1,
     opts: [
       { s: "Generic algorithms are defined so they operate on elements of different types via iterators.", c: true },
       { s: "The <algorithm> header contains many of the most important STL algorithms.", c: true },
@@ -556,6 +592,7 @@ while (std::cin >> word)
     topic: "Predicates",
     text: "Predicates in generic algorithms",
     code: null,
+    points: 1,
     opts: [
       { s: "A predicate is an expression or function object that can be called and returns a value used as a condition.", c: true },
       { s: "Algorithms often have versions that accept a user-defined predicate to customize behavior.", c: true },
@@ -568,6 +605,7 @@ while (std::cin >> word)
     topic: "Search algorithms",
     text: "Search algorithms",
     code: null,
+    points: 1,
     opts: [
       { s: "find(b,e,v) returns an iterator to the first element equal to v in [b,e).", c: true },
       { s: "find_if(b,e,up) returns an iterator to the first element for which up is true.", c: true },
@@ -584,6 +622,7 @@ auto res1 = std::find(v.begin(), v.end(), 7);
 auto res2 = std::find(v.begin(), v.end(), 9);
 if (res2 == v.end())
   std::cout << "Not found!";`,
+    points: 1,
     opts: [
       { s: "res1 points to the first element equal to 7.", c: true },
       { s: "res2 is equal to v.end() because 9 is not present.", c: true },
@@ -596,6 +635,7 @@ if (res2 == v.end())
     topic: "Binary search algorithms",
     text: "Binary search algorithms",
     code: null,
+    points: 1,
     opts: [
       { s: "Binary search algorithms require the input range to be sorted.", c: true },
       { s: "lower_bound(b,e,v) returns the first position where v could be inserted without breaking ordering (first not less than v).", c: true },
@@ -613,6 +653,7 @@ std::vector<int> arr3 = {10,15,25,30,35};
 std::cout << lower_bound(arr1.begin(), arr1.end(), 20) - arr1.begin() << std::endl;
 std::cout << lower_bound(arr2.begin(), arr2.end(), 20) - arr2.begin() << std::endl;
 std::cout << lower_bound(arr3.begin(), arr3.end(), 20) - arr3.begin() << std::endl;`,
+    points: 1,
     opts: [
       { s: "For arr1, the printed index is 2.", c: true },
       { s: "For arr2, the printed index is also 2 (first not less than 20).", c: true },
@@ -633,6 +674,7 @@ if (std::binary_search(arr.begin(), arr.end(), 23))
   std::cout << "23 exists in vector";
 else
   std::cout << "23 does not exist";`,
+    points: 1,
     opts: [
       { s: "The first binary_search call returns true because 15 is in the vector.", c: true },
       { s: "The second binary_search call returns false because 23 is not in the vector.", c: true },

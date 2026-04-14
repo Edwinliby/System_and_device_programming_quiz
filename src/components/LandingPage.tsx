@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Unit } from "../types";
 
 interface LandingPageProps {
@@ -7,6 +7,13 @@ interface LandingPageProps {
 }
 
 const LandingPage: React.FC<LandingPageProps> = ({ units, onSelectUnit }) => {
+  const [marks, setMarks] = useState<Record<number, { score: number; total: number }>>({});
+
+  useEffect(() => {
+    const savedMarks = JSON.parse(localStorage.getItem("quiz-marks") || "{}");
+    setMarks(savedMarks);
+  }, []);
+
   return (
     <div className="landing">
       <header className="hero">
@@ -27,32 +34,44 @@ const LandingPage: React.FC<LandingPageProps> = ({ units, onSelectUnit }) => {
 
       <div className="units-label">Available Units</div>
       <section className="units-grid">
-        {units.map((unit) => (
-          <div
-            key={unit.id}
-            className="unit-card"
-            onClick={() => onSelectUnit(unit)}
-          >
-            <div className="unit-card-icon">{unit.icon}</div>
-            <div className="unit-tag">{unit.tag}</div>
-            <h2>{unit.title}</h2>
-            <p>{unit.desc}</p>
-            <div className="unit-topics">
-              {unit.topics.slice(0, 4).map((topic) => (
-                <span key={topic} className="topic-pill">
-                  {topic}
-                </span>
-              ))}
-              {unit.topics.length > 4 && (
-                <span className="topic-pill">+{unit.topics.length - 4}</span>
-              )}
+        {units.map((unit) => {
+          const mark = marks[unit.id];
+          const hasMark = mark !== undefined;
+
+          return (
+            <div
+              key={unit.id}
+              className={`unit-card ${hasMark ? "completed" : ""}`}
+              onClick={() => onSelectUnit(unit)}
+            >
+              <div className="unit-card-icon">{unit.icon}</div>
+              <div className="unit-tag">{unit.tag}</div>
+              <h2>{unit.title}</h2>
+              <p>{unit.desc}</p>
+              <div className="unit-topics">
+                {unit.topics.slice(0, 4).map((topic) => (
+                  <span key={topic} className="topic-pill">
+                    {topic}
+                  </span>
+                ))}
+                {unit.topics.length > 4 && (
+                  <span className="topic-pill">+{unit.topics.length - 4}</span>
+                )}
+              </div>
+              <div className="unit-card-footer">
+                <div className="footer-left">
+                  <span className="unit-q-count"><strong>{unit.questions.length}</strong> Questions</span>
+                  {hasMark && (
+                    <div className="unit-mark-badge">
+                      Last Score: <strong>{mark.score.toFixed(1)} / {mark.total.toFixed(0)}</strong>
+                    </div>
+                  )}
+                </div>
+                <span className="unit-arrow">→</span>
+              </div>
             </div>
-            <div className="unit-card-footer">
-              <span className="unit-q-count"><strong>{unit.questions.length}</strong> Questions</span>
-              <span className="unit-arrow">→</span>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </section>
 
       <footer className="landing-footer">

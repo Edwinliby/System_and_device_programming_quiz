@@ -8,6 +8,7 @@ export interface Question {
   text: string;
   code: string | null;
   opts: Option[];
+  points?: number;
 }
 
 export interface Unit {

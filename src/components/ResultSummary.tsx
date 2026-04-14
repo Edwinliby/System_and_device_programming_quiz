@@ -40,17 +40,17 @@ const ResultSummary: React.FC<ResultSummaryProps> = ({
       <h2>Quiz Completed</h2>
       <p>{feedback}</p>
 
-      <div className="final-score">{score}/{total}</div>
-      <div className="final-pct">{percentage}% Correct Answer Rate</div>
+      <div className="final-score">{score.toFixed(1)}/{total.toFixed(0)}</div>
+      <div className="final-pct">{percentage}% Total Score</div>
 
       <div className="results-breakdown">
         <div className="bk">
-          <span className="bv">{score}</span>
-          <span className="bl">Correct</span>
+          <span className="bv">{score.toFixed(1)}</span>
+          <span className="bl">Points Earned</span>
         </div>
         <div className="bk">
-          <span className="bv">{total - score}</span>
-          <span className="bl">Mistakes</span>
+          <span className="bv">{(total - score).toFixed(1)}</span>
+          <span className="bl">Points Lost</span>
         </div>
       </div>
 

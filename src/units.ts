@@ -2,6 +2,7 @@ import { unit02Questions } from "./data/unit02";
 import { unit03Questions } from "./data/unit03";
 import { unit04s01Questions } from "./data/unit04s01";
 import { unit04s07Questions } from "./data/unit04s07";
+import { unit05Questions } from "./data/unit05";
 import { Unit } from "./types";
 
 export const UNITS: Unit[] = [
@@ -77,5 +78,23 @@ export const UNITS: Unit[] = [
     questions: unit04s07Questions,
     unitLabel: "C++ Programming · Unit 04 · s07–11",
     quizTitle: "Memory, Smart Pointers, Copy/Move & Templates",
+  },
+  {
+    id: 4,
+    tag: "Linux · Unit 05",
+    title: "Unit 05 — Concurrency, Shared Memory & IPC",
+    desc: "System V and POSIX IPC, shared memory, semaphores, message queues, and synchronization patterns.",
+    icon: "🔄",
+    topics: [
+      "Shared Memory",
+      "Semaphores",
+      "Message Queues",
+      "Condition Variables",
+      "IPC Patterns",
+      "Deadlock",
+    ],
+    questions: unit05Questions,
+    unitLabel: "System & Device Programming · Unit 05",
+    quizTitle: "Concurrency, Shared Memory & IPC",
   },
 ];

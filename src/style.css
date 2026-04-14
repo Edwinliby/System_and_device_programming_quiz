@@ -280,6 +280,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
 }
 
 .unit-q-count {
@@ -290,6 +298,21 @@ body {
 
 .unit-q-count strong {
   color: var(--text);
+}
+
+.unit-mark-badge {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--correct);
+  background: var(--correct-bg);
+  border: 1px solid var(--correct-bd);
+  border-radius: 4px;
+  padding: 3px 8px;
+  width: fit-content;
+}
+
+.unit-card.completed {
+  border-color: var(--correct-bd);
 }
 
 .unit-arrow {
