@@ -3,6 +3,7 @@ import { unit03Questions } from "./data/unit03";
 import { unit04s01Questions } from "./data/unit04s01";
 import { unit04s07Questions } from "./data/unit04s07";
 import { unit05Questions } from "./data/unit05";
+import { theoryQuestions } from "./data/theoryData";
 import { Unit } from "./types";
 
 export const UNITS: Unit[] = [
@@ -96,5 +97,24 @@ export const UNITS: Unit[] = [
     questions: unit05Questions,
     unitLabel: "System & Device Programming · Unit 05",
     quizTitle: "Concurrency, Shared Memory & IPC",
+  },
+  {
+    id: 5,
+    tag: "Theory · Learn",
+    title: "C++ Theory Questions",
+    desc: "Read and learn about dynamic memory allocation, smart pointers, and memory management concepts.",
+    icon: "📖",
+    topics: [
+      "Dynamic Memory",
+      "Smart Pointers",
+      "Heap/Stack",
+      "Memory Leaks",
+      "Move Semantics",
+    ],
+    questions: [], // Empty for theory
+    isTheory: true,
+    theoryData: theoryQuestions,
+    unitLabel: "C++ Theory & Concepts",
+    quizTitle: "C++ Theory Learning",
   },
 ];

@@ -11,6 +11,11 @@ export interface Question {
   points?: number;
 }
 
+export interface TheoryQuestion {
+  question: string;
+  answer: string;
+}
+
 export interface Unit {
   id: number;
   tag: string;
@@ -21,4 +26,6 @@ export interface Unit {
   questions: Question[];
   unitLabel: string;
   quizTitle: string;
+  isTheory?: boolean;
+  theoryData?: TheoryQuestion[];
 }

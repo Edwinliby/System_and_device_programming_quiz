@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import LandingPage from "./components/LandingPage";
 import QuizEngine from "./components/QuizEngine";
+import TheoryEngine from "./components/TheoryEngine";
 import { Unit } from "./types";
 import { UNITS } from "./units";
 
@@ -16,7 +17,11 @@ const App = () => {
   return (
     <div className="app-container">
       {currentUnit ? (
-        <QuizEngine unit={currentUnit} onExit={handleExitQuiz} />
+        currentUnit.isTheory ? (
+          <TheoryEngine unit={currentUnit} onExit={handleExitQuiz} />
+        ) : (
+          <QuizEngine unit={currentUnit} onExit={handleExitQuiz} />
+        )
       ) : (
         <LandingPage units={UNITS} onSelectUnit={setCurrentUnit} />
       )}

@@ -811,6 +811,69 @@ pre.code-block {
 .perf-badge.needs-work{ color: var(--wrong);   background: var(--wrong-bg);   border: 1px solid var(--wrong-bd); }
 
 /* ============================================================
+   THEORY VIEW
+   ============================================================ */
+.theory-list {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.theory-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  cursor: pointer;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.theory-card:hover {
+  border-color: var(--border-focus);
+}
+
+.theory-card.expanded {
+  border-color: var(--border-focus);
+}
+
+.theory-q-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.theory-q-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text);
+  margin: 0;
+}
+
+.theory-q-icon {
+  font-size: 18px;
+  color: var(--text-3);
+  transition: transform 0.3s ease, color var(--transition);
+  margin-top: 2px;
+}
+
+.theory-card:hover .theory-q-icon {
+  color: var(--text);
+}
+
+.theory-answer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  color: var(--text-2);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 600px) {
